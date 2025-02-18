@@ -1,4 +1,4 @@
-# Visita la tienda aqui 
+# Visita el juego aqui aqui 
 <a href='https://juandriko.github.io/Ordenar-palabras/'> Ver la pagina aqui </a> 
 
 # Ordenar Palabras
