@@ -9,8 +9,7 @@ const routes = [
   },
   { path: '/preguntas/', 
     name: 'Preguntas', 
-    component: Preguntas 
-  },
+    component: Preguntas },
 ];
 
 const router = createRouter({

@@ -113,7 +113,7 @@ export default {
       selectedLetters: [],
       shuffledLetters: [],
       score: 0,
-      scoreFinal: 1000, // Define el score final
+      scoreFinal: 1000,
       usedWordIds: [],
       nickname: ''
     };
@@ -187,7 +187,6 @@ export default {
         this.correct = true;
         this.incorrect = false;
 
-        // Verifica si el score es igual o mayor al score final
         if (this.score >= this.scoreFinal) {
           this.finalizarJuego();
         }
