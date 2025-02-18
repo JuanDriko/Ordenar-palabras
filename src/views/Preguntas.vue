@@ -70,6 +70,21 @@
 
 <script>
 import draggable from "vuedraggable";
+import star0 from "@/assets/img/stars/0.svg";
+import star1 from "@/assets/img/stars/1.svg";
+import star2 from "@/assets/img/stars/2.svg";
+import star3 from "@/assets/img/stars/3.svg";
+import star4 from "@/assets/img/stars/4.svg";
+import star5 from "@/assets/img/stars/5.svg";
+import star6 from "@/assets/img/stars/6.svg";
+import star7 from "@/assets/img/stars/7.svg";
+import star8 from "@/assets/img/stars/8.svg";
+import star9 from "@/assets/img/stars/9.svg";
+import star10 from "@/assets/img/stars/10.svg";
+import emogi1 from "@/assets/img/emogis/emogis_bajo.png";
+import emogi2 from "@/assets/img/emogis/emogis_medio.png";
+import emogi3 from "@/assets/img/emogis/emogis_alto.png";
+import emogi4 from "@/assets/img/emogis/emogis_superior.png";
 
 export default {
   name: "DragLetters",
@@ -98,6 +113,7 @@ export default {
       selectedLetters: [],
       shuffledLetters: [],
       score: 0,
+      scoreFinal: 1000, // Define el score final
       usedWordIds: [],
       nickname: ''
     };
@@ -110,23 +126,23 @@ export default {
   },
   computed: {
     message() {
-      if (this.score <= 200) return "/img/emogis/emogis_bajo.png";
-      else if (this.score <= 500) return "/img/emogis/emogis_medio.png";
-      else if (this.score <= 800) return "/img/emogis/emogis_alto.png";
-      else return "/img/emogis/emogis_superior.png";
+      if (this.score <= 200) return emogi1;
+      else if (this.score <= 500) return emogi2;
+      else if (this.score <= 800) return emogi3;
+      else return emogi4;
     },
     star() {
-      if (this.score === 0) return "/img/stars/0.svg";
-      else if (this.score === 100) return "/img/stars/1.svg";
-      else if (this.score === 200) return "/img/stars/2.svg";
-      else if (this.score === 300) return "/img/stars/3.svg";
-      else if (this.score === 400) return "/img/stars/4.svg";
-      else if (this.score === 500) return "/img/stars/5.svg";
-      else if (this.score === 600) return "/img/stars/6.svg";
-      else if (this.score === 700) return "/img/stars/7.svg";
-      else if (this.score === 800) return "/img/stars/8.svg";
-      else if (this.score === 900) return "/img/stars/9.svg";
-      else return "/img/stars/10.svg";
+      if (this.score === 0) return star0;
+      else if (this.score === 100) return star1;
+      else if (this.score === 200) return star2;
+      else if (this.score === 300) return star3;
+      else if (this.score === 400) return star4;
+      else if (this.score === 500) return star5;
+      else if (this.score === 600) return star6;
+      else if (this.score === 700) return star7;
+      else if (this.score === 800) return star8;
+      else if (this.score === 900) return star9;
+      else return star10;
     },
   },
   methods: {
@@ -170,7 +186,12 @@ export default {
         this.score += 100;
         this.correct = true;
         this.incorrect = false;
-        
+
+        // Verifica si el score es igual o mayor al score final
+        if (this.score >= this.scoreFinal) {
+          this.finalizarJuego();
+        }
+
         setTimeout(() => {
           this.correct = false;
           this.getNextWord();
