@@ -3,7 +3,7 @@ import Home from '../views/Home.vue';
 import Preguntas from '../views/Preguntas.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
+  { path: '/Ordenar-palabras', name: 'Home', component: Home },
   { path: '/preguntas', name: 'Preguntas', component: Preguntas },
 ];
 
